@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LF Soluções Empresariais | Elite Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #050A14; 
+            --accent: #2ecc71; 
+            --white: #FFFFFF;
+            --gray-card: #0F172A;
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Custom Cursor/Interaction Effects --- */
+        .reveal-text {
+            overflow: hidden;
+        }
+
+        /* --- Header Glow --- */
+        header {
+            padding: 25px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 10, 20, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .logo span { color: var(--accent); }
+
+        /* --- Hero High Performance --- */
+        .hero {
+            padding: 160px 6% 80px;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Background Light Effect */
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            filter: blur(150px);
+            opacity: 0.15;
+            top: 20%;
+            right: -50px;
+            z-index: -1;
+        }
+
+        .hero span {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+            animation: slideInLeft 1s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            line-height: 1;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            border-left: 2px solid var(--accent);
+            padding-left: 20px;
+            max-width: 500px;
+            animation: fadeIn 2s ease;
+        }
+
+        /* --- Sections --- */
+        section { padding: 100px 6%; }
+
+        .tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            line-height: 1.1;
+        }
+
+        /* --- Cards with Hover Animation --- */
+        .services-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .service-card {
+            background: var(--gray-card);
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:active {
+            transform: scale(0.98);
+            background: #161e2e;
+            border-color: var(--accent);
+        }
+
+        .service-card i {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        /* --- Steps with Floating Animation --- */
+        .steps-vertical {
+            border-left: 1px solid rgba(255,255,255,0.05);
+            margin-left: 10px;
+            padding-left: 30px;
+        }
+
+        .step-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .step-item::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        .step-item h4 { font-size: 1.2rem; margin-bottom: 8px; font-family: 'Syne'; }
+        .step-item p { font-size: 1rem; color: var(--text-muted); }
+
+        /* --- Performance Luxury Box --- */
+        .perf-section {
+            background: var(--white);
+            color: var(--bg);
+            padding: 80px 8%;
+            border-radius: 30px 30px 0 0;
+            text-align: center;
+        }
+
+        .perf-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 15px;
+            background: rgba(5, 10, 20, 0.03);
+            border-radius: 10px;
+        }
+
+        .perf-item i { color: var(--accent); font-size: 1.2rem; }
+
+        .alert-box {
+            margin-top: 40px;
+            background: var(--bg);
+            color: var(--white);
+            padding: 30px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* --- Final CTA & Animations --- */
+        .final-cta {
+            text-align: center;
+            padding: 120px 6%;
+            background: var(--bg);
+        }
+
+        .btn-whatsapp-final {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: var(--white);
+            color: var(--bg);
+            padding: 25px 40px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            margin-top: 50px;
+            transition: 0.4s;
+            box-shadow: 0 0 0 0 rgba(255,255,255,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+            70% { box-shadow: 0 0 0 20px rgba(255,255,255,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+        }
+
+        footer {
+            padding: 60px 6%;
+            text-align: center;
+            font-size: 0.7rem;
+            opacity: 0.4;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* --- Custom Keyframes --- */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideInLeft { from { transform: translateX(-30px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">LF <span>Soluções</span></div>
+        <div style="font-size: 0.6rem; letter-spacing: 2px; opacity: 0.5;">EST. 2026</div>
+    </header>
+
+    <section class="hero">
+        <span data-aos="fade-down" data-aos-duration="1000">Excellence & Performance</span>
+        <h1 data-aos="fade-up" data-aos-duration="1200">Reduza custos e fortaleça sua operação</h1>
+        <p data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">Intermediação estratégica e otimização de contratos para empresas que buscam eficiência e economia real.</p>
+    </section>
+
+    <section id="sobre" style="background: #080E1A; border-radius: 40px 40px 0 0;">
+        <span class="tag" data-aos="fade-right">Institucional</span>
+        <h2 data-aos="fade-up">Seja bem-vindo à<br>LF Soluções Empresariais</h2>
+        <div data-aos="fade-up" data-aos-delay="200">
+            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem;">A LF Soluções Empresariais atua na intermediação e otimização de contratos comerciais, conectando empresas a fornecedores estratégicos e identificando oportunidades reais de redução de custos.</p>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">Nosso objetivo é tornar sua operação mais eficiente, competitiva e financeiramente saudável, através de análise técnica e negociação estruturada.</p>
+        </div>
+    </section>
+
+    <section id="servicos">
+        <span class="tag" data-aos="fade-right">Expertise</span>
+        <h2 data-aos="fade-up">O Que Fazemos</h2>
+        <div class="services-stack">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-file-signature"></i>
+                <h3>Revisão de contratos com fornecedores</h3>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-chart-pie"></i>
+                <h3>Análise de custos operacionais</h3>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-handshake-angle"></i>
+                <h3>Intermediação comercial estratégica</h3>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-search-dollar"></i>
+                <h3>Busca por melhores condições</h3>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <i class="fas fa-chess-king"></i>
+                <h3>Negociação estratégica</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="como-funciona" style="background: #080E1A;">
+        <span class="tag" data-aos="fade-right">Processo</span>
+        <h2 data-aos="fade-up">Como Funciona</h2>
+        <div class="steps-vertical">
+            <div class="step-item" data-aos="fade-left" data-aos-delay="100">
+                <h4>01. Análise Inicial</h4>
+                <p>Realizamos uma análise inicial gratuita do seu cenário atual.</p>
+            </div>
+            <div class="step-item" data-aos="fade-left" data-aos-delay="200">
+                <h4>02. Oportunidades</h4>
+                <p>Identificamos possíveis oportunidades de melhoria técnica.</p>
+            </div>
+            <div class="step-item" data-aos="fade-left" data-aos-delay="300">
+                <h4>03. Negociação</h4>
+                <p>Negociamos condições mais vantajosas com os fornecedores.</p>
+            </div>
+            <div class="step-item" data-aos="fade-left" data-aos-delay="400">
+                <h4>04. Formalização</h4>
+                <p>Formalizamos a economia real gerada para sua empresa.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="perf-section">
+        <span class="tag" style="color: var(--bg); opacity: 0.6;" data-aos="fade-down">Compromisso</span>
+        <h2 style="color: var(--bg);" data-aos="fade-up">Modelo Baseado em Performance</h2>
+        <div class="perf-list" data-aos="fade-up" data-aos-delay="200">
+            <div class="perf-item"><i class="fas fa-check-circle"></i> Não há custo inicial</div>
+            <div class="perf-item"><i class="fas fa-check-circle"></i> Não há cobrança antecipada</div>
+            <div class="perf-item"><i class="fas fa-check-circle"></i> Remuneração via resultado</div>
+        </div>
+        <div class="alert-box" data-aos="zoom-in" data-aos-duration="1000">
+            “Se não houver economia concreta, não há custo para sua empresa.”
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div data-aos="fade-up" data-aos-duration="1200">
+            <span class="tag">Atendimento</span>
+            <h2>Pronto para elevar o nível da sua operação?</h2>
+            <p style="color: var(--text-muted); padding: 0 10%;">Fale agora com nosso consultor especializado.</p>
+            
+            <a href="https://wa.me/55984540405" class="btn-whatsapp-final" target="_blank">
+                <i class="fab fa-whatsapp"></i> Iniciar Consultoria
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 LF Soluções Empresariais</p>
+        <p style="margin-top: 10px;">Efficiency & Real Economy</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicialização das animações com configurações de luxo (mais lentas e suaves)
+        AOS.init({ 
+            duration: 1000, 
+            once: true,
+            easing: 'ease-out-quart',
+            offset: 50
+        });
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
